@@ -81,7 +81,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
 
         const assistantOverrides = {
             variableValues: { subject, topic, style },
-            clientMessages: ["transcript"],
+            clientMessages: ["transcript" , "model-output"],
             serverMessages: [],
         }
 
