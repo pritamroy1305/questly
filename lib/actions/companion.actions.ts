@@ -1,7 +1,7 @@
 'use server';
 
 import {auth} from "@clerk/nextjs/server";
-import { createSupabaseClient } from "@/lib/supabase";
+import {createSupabaseClient} from "@/lib/supabase";
 import { revalidatePath } from "next/cache";
 
 export const createCompanion = async (formData: CreateCompanion) => {
@@ -19,35 +19,27 @@ export const createCompanion = async (formData: CreateCompanion) => {
 }
 
 export const getAllCompanions = async ({ limit = 10, page = 1, subject, topic }: GetAllCompanions) => {
-  try {
     const supabase = createSupabaseClient();
 
     let query = supabase.from('companions').select();
 
-    if (subject && topic) {
-      query = query.ilike('subject', `%${subject}%`).or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`);
-    } else if (subject) {
-      query = query.ilike('subject', `%${subject}%`);
-    } else if (topic) {
-      query = query.or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`);
+    if(subject && topic) {
+        query = query.ilike('subject', `%${subject}%`)
+            .or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
+    } else if(subject) {
+        query = query.ilike('subject', `%${subject}%`)
+    } else if(topic) {
+        query = query.or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
     }
 
     query = query.range((page - 1) * limit, page * limit - 1);
 
     const { data: companions, error } = await query;
 
-    if (error) {
-      console.error("Supabase Error in getAllCompanions:", error.message);
-      return []; // fallback if fetch fails
-    }
+    if(error) throw new Error(error.message);
 
-    return companions ?? []; // default empty list
-  } catch (err) {
-    console.error("Unexpected error in getAllCompanions:", err);
-    return []; // fallback on unexpected crash
-  }
-};
-
+    return companions;
+}
 
 export const getCompanion = async (id: string) => {
     const supabase = createSupabaseClient();
