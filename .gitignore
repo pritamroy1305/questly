@@ -42,3 +42,8 @@ next-env.d.ts
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Optional config files (safe to ignore, unless edited manually)
+postcss.config.mjs
+sentry.edge.config.ts
+entry.server.config.ts
