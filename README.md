@@ -93,12 +93,3 @@ Check the [Next.js deployment guide](https://nextjs.org/docs/app/building-your-a
 Questly combines **real-time AI**, **voice interaction**, and **modern web tech** to deliver a seamless and intelligent learning experience — tailored to you.
 
 ---
-
-Let me know if you'd like:
-
-* A `README-light.png` / banner image
-* Contribution guide
-* Badges (build, license, etc.)
-* i18n version (Hindi/Bengali)
-
-All ready to be added!
