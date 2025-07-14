@@ -1,13 +1,3 @@
-Got it — you're seeing formatting issues because **GitHub doesn’t render Markdown properly inside code blocks (`...`) when they contain regular Markdown** like `#`, `|`, or `---`.
-
-✅ **Fix**: Make sure only code (commands, config, scripts) goes inside triple backticks. Keep the rest as plain markdown.
-
----
-
-Here's the **corrected version** of your `README.md` (just copy-paste it directly into your repo’s `README.md` file — no extra code fences):
-
----
-
 # 🚀 Questly – Your AI-Powered Voice Mentor
 
 **Questly** is a **real-time, voice-driven educational platform** that acts like your **personal AI mentor** — always available, tailored to your learning goals, and built for the future of frictionless, interactive learning.
